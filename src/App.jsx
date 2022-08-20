@@ -5,6 +5,7 @@ import {
   Routes,
   Link
 } from "react-router-dom";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Dashboard from "./components/Dashboard";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
             </li>
           </ul>
         </nav>
+        <ConnectButton/>
         <Routes>
           <Route path="/dashboard" element={<Dashboard account={null}/>}>
           </Route>
