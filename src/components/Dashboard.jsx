@@ -3,18 +3,19 @@ import Button from '@mui/material/Button';
 
 
 const Dashboard = ({ account }) => {
-    <Button variant="contained">Hello World</Button>
   if (account) {
     return (
       <>
+        <Button variant="contained">Hello World</Button>
         <p> Yay account!</p>
       </>
-    );
+  );
   } else {
     return(
-    <>
-      <p> No account</p>
-    </>
+      <>
+        <Button variant="contained">Hello World</Button>    
+        <p> No account</p>
+      </>
     );
   }
 };
