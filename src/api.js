@@ -2,14 +2,13 @@ import { createClient, defaultExchanges } from 'urql';
 import { devtoolsExchange } from '@urql/devtools';
 
 const APIURL = "https://api-mumbai.lens.dev"
-// const APIURL = "https://api.lens.dev"
 
 export const client = createClient({
   url: APIURL,
   exchanges: [devtoolsExchange, ...defaultExchanges],
 })
 
-export const recommendProfiles = `
+export const recommendedProfiles = `
 query RecommendedProfiles {
     recommendedProfiles {
           id

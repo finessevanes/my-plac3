@@ -1,28 +1,15 @@
-
-
 import { useState, useEffect } from 'react'
 import {
-  client, explorePublications
+  client, explorePublications, 
 } from '../api'
 import PublicationCard from './PublicationCard'
 
 export default function Profiles() {
-  const [profiles, setProfiles] = useState([])
   const [publications, setPublications] = useState([])
   const CONSTANT_BIO = 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
   useEffect(() => {
     fetchPublications()
   }, [])
-
-  // async function fetchProfiles() {
-  //   try {
-  //     const res = await client.query(recommendProfiles).toPromise()
-  //     console.log('res in profiles', res)
-  //     setProfiles(res.data.recommendedProfiles.items)
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }
 
   async function fetchPublications() {
     try {
