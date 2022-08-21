@@ -15,8 +15,6 @@ export default function Profiles() {
     fetchPublications()
   }, [])
 
-  console.log(publications)
-
   // async function fetchProfiles() {
   //   try {
   //     const res = await client.query(recommendProfiles).toPromise()
@@ -30,7 +28,6 @@ export default function Profiles() {
   async function fetchPublications() {
     try {
       const res = await client.query(explorePublications).toPromise()
-      console.log('res in profiles', res)
       setPublications(res.data.explorePublications.items)
     } catch (e) {
       console.log(e)

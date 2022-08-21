@@ -28,7 +28,6 @@ const ExpandMore = styled((props) => {
 
 export default function PublicationCard({ key, uri, createdAt }) {
   const title = 'SAMEPLE TITLE'
-  console.log('uri', `https://${uri}`)
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
