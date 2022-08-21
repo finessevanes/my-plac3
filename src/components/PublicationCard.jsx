@@ -53,7 +53,7 @@ export default function PublicationCard({ key, uri, createdAt }) {
       <CardMedia
         component="img"
         height="194"
-        image='https://gateway.pinata.cloud/ipfs/QmbeECCAZnZdkdF2yVu23DQHsu4uc3WSnsMS1gnwP4j8L3'
+        image='https://source.unsplash.com/random/?colorful'
         alt="Paella dish"
       />
       <CardContent>
