@@ -3,6 +3,9 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import {
+  client, explorePublications
+} from '../api'
 
 const validationSchema = yup.object({
   handle: yup
@@ -19,8 +22,17 @@ const SignupForm = () => {
       uri: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log('submit')
+    onSubmit: async (values) => {
+      try {
+        const result = await client.query(explorePublications).toPromise()
+        // {
+        //   "data": {
+        //     "txHash": "0xd771b9b8fd558eda20598e8a464cc9cc9e28f4bd75e823d30ee276dd590cd67e"
+        //   }
+        // }
+      } catch (e) {
+        console.log(e)
+      }
     },
   });
 

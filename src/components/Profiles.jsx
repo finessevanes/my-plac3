@@ -1,9 +1,8 @@
 
 
-import { id } from 'ethers/lib/utils'
 import { useState, useEffect } from 'react'
 import {
-  client, recommendProfiles, explorePublications
+  client, explorePublications
 } from '../api'
 import PublicationCard from './PublicationCard'
 
