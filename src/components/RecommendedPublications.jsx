@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Publications from './Publications'
-import { client, recommendedProfiles, explorePublications } from '../api'
+import { client, recommendedProfiles, getPublications } from '../api'
 import PublicationCard from './PublicationCard';
 
 const RecommendedPublications = () => {
@@ -24,9 +24,9 @@ const RecommendedPublications = () => {
     // Could just do n request per profile, but would be nice to have 1 network roundtrip
     // const res = await client.query(getPublications, { request: "profileIds": profileIds })
     try {
-      const res = await client.query(explorePublications).toPromise()
-      console.log('items is', res.data.explorePublications.items)
-      setPublications([...publications, res.data.explorePublications.items])
+      const res = await client.query(getPublications).toPromise()
+      console.log('items is', res.data.getPublications.items)
+      setPublications([...publications, res.data.getPublications.items])
     } catch (e) {
       console.log(e)
     }
