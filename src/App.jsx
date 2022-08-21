@@ -8,24 +8,16 @@ import {
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Dashboard from "./components/Dashboard";
 
+// build on app, on success log in, route to dashboard
+
 export default function App() {
   
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Profiles</Link>
-            </li>
-            <li>
-              <Link to="/">Communities</Link>
-            </li>
-          </ul>
-        </nav>
         <ConnectButton/>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/" element={<Dashboard />}>
           </Route>
         </Routes>
       </div>

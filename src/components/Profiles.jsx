@@ -42,14 +42,14 @@ export default function Profiles() {
   }
 
   return (
-    <>
+    <div>
       {publications.map((publication) => {
         const {id, createdAt, onChainContentURI } = publication
         return (
           <PublicationCard key={id} uri={onChainContentURI} createdAt={createdAt} />
         )
       })}
-    </>
+    </div>
   )
 
 }
