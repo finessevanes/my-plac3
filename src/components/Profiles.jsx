@@ -39,7 +39,7 @@ export default function Profiles() {
   }
 
   return (
-    <div>
+    <div style={{ width: 'fit-content', margin: '0 auto'}}>
       {publications.map((publication) => {
         const {id, createdAt, onChainContentURI } = publication
         return (
