@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Link
 } from "react-router-dom";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Dashboard from "./components/Dashboard";

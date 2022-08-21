@@ -940,3 +940,21 @@ fragment CommentMirrorOfFields on Comment {
   }
 }
 `
+
+export const createProfile = `
+mutation CreateProfile {
+  createProfile(request:{ 
+                handle: "sofie",
+                profilePictureUri: null,
+                followNFTURI: null,
+                followModule: null
+                }) {
+    ... on RelayerResult {
+      txHash
+    }
+    ... on RelayError {
+      reason
+    }
+    __typename
+  }
+}`
