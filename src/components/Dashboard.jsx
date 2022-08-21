@@ -1,9 +1,10 @@
 import React from "react";
 import Button from '@mui/material/Button';
+import { useAccount, useProvider, useContract } from 'wagmi'
 
-
-const Dashboard = ({ account }) => {
-  if (account) {
+const Dashboard = () => {
+  const { address } = useAccount()
+  if (address) {
     return (
       <>
         <Button variant="contained">Hello World</Button>

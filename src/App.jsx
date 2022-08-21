@@ -6,9 +6,11 @@ import {
   Link
 } from "react-router-dom";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 import Dashboard from "./components/Dashboard";
 
 export default function App() {
+
   return (
     <Router>
       <div>
@@ -24,7 +26,7 @@ export default function App() {
         </nav>
         <ConnectButton/>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard account={null}/>}>
+          <Route path="/dashboard" element={<Dashboard />}>
           </Route>
         </Routes>
       </div>
