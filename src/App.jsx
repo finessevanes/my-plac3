@@ -4,8 +4,9 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import Onboard from "./components/Onboard";
 import Dashboard from "./components/Dashboard";
+import SignupForm from "./components/SignupForm";
 
 // build on app, on success log in, route to dashboard
 
@@ -14,10 +15,10 @@ export default function App() {
   return (
     <Router>
       <div>
-        <ConnectButton/>
         <Routes>
-          <Route path="/" element={<Dashboard />}>
-          </Route>
+          <Route path="/" element={<Onboard />}/>
+          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/create" element={<SignupForm />}/>
         </Routes>
       </div>
     </Router>

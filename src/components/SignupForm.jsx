@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useMutation } from 'urql';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {
@@ -16,6 +17,7 @@ const validationSchema = yup.object({
 });
 
 const SignupForm = () => {
+  const [createProfileResult, createProfile] = useMutation();
   const formik = useFormik({
     initialValues: {
       handle: '',
@@ -23,16 +25,15 @@ const SignupForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      try {
-        const result = await client.query(explorePublications).toPromise()
-        // {
-        //   "data": {
-        //     "txHash": "0xd771b9b8fd558eda20598e8a464cc9cc9e28f4bd75e823d30ee276dd590cd67e"
-        //   }
-        // }
-      } catch (e) {
-        console.log(e)
-      }
+      console.log('mutation: createProfile')
+      createProfile(values).then(result => {
+          if (result.error) {
+            console.error('Oh no!', result.error);
+          } else {
+            const { txHash } = result.data
+            // TODO: do something with txHash
+          }
+        });
     },
   });
 
