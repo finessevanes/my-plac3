@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { useAccount, useProvider, useContract } from 'wagmi'
 import { WorldIDWidget } from "@worldcoin/id";
 import Profiles from './Profiles'
+import PublicationCard from './PublicationCard'
 
 const Dashboard = () => {
 

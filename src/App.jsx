@@ -9,7 +9,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Dashboard from "./components/Dashboard";
 
 export default function App() {
-
+  
   return (
     <Router>
       <div>

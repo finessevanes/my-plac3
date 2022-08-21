@@ -1,55 +1,55 @@
 
 
+import { id } from 'ethers/lib/utils'
 import { useState, useEffect } from 'react'
 import {
   client, recommendProfiles, explorePublications
 } from '../api'
+import PublicationCard from './PublicationCard'
 
 export default function Profiles() {
   const [profiles, setProfiles] = useState([])
   const [publications, setPublications] = useState([])
   const CONSTANT_BIO = 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
   useEffect(() => {
-    fetchProfiles()
     fetchPublications()
   }, [])
 
   console.log(publications)
 
-  async function fetchProfiles() {
-    try {
-      const res = await client.query(recommendProfiles).toPromise()
-      console.log('res in profiles', res)
-      setProfiles(res.data.recommendedProfiles)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  // async function fetchProfiles() {
+  //   try {
+  //     const res = await client.query(recommendProfiles).toPromise()
+  //     console.log('res in profiles', res)
+  //     setProfiles(res.data.recommendedProfiles.items)
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
 
   async function fetchPublications() {
     try {
       const res = await client.query(explorePublications).toPromise()
       console.log('res in profiles', res)
-      setPublications(res.data.explorePublications)
+      setPublications(res.data.explorePublications.items)
     } catch (e) {
       console.log(e)
     }
   }
 
-  if (!profiles) return null
-
-  const profileItemStyle = `
-  p-8
-  bg-white
-  shadow-custom
-  rounded-lg
-  w-10/12
-  ml-8
-  mt-4
-  mb-8
-  `
+  if (!publications) {
+    return null
+  }
 
   return (
-    <></>
+    <>
+      {publications.map((publication) => {
+        const {id, createdAt, onChainContentURI } = publication
+        return (
+          <PublicationCard key={id} uri={onChainContentURI} createdAt={createdAt} />
+        )
+      })}
+    </>
   )
+
 }

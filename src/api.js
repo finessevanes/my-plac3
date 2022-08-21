@@ -1,10 +1,12 @@
-import { createClient } from 'urql'
+import { createClient, defaultExchanges } from 'urql';
+import { devtoolsExchange } from '@urql/devtools';
 
 const APIURL = "https://api-mumbai.lens.dev"
 // const APIURL = "https://api.lens.dev"
 
 export const client = createClient({
-  url: APIURL
+  url: APIURL,
+  exchanges: [devtoolsExchange, ...defaultExchanges],
 })
 
 export const recommendProfiles = `
@@ -389,7 +391,8 @@ fragment PostFields on Post {
   id
   profile {
     ...ProfileFields
-  }
+  } 
+  onChainContentURI
   stats {
     ...PublicationStatsFields
   }
@@ -827,6 +830,7 @@ fragment PostFields on Post {
   collectModule {
     ...CollectModuleFields
   }
+  onChainContentURI
   referenceModule {
     ... on FollowOnlyReferenceModuleSettings {
       type
