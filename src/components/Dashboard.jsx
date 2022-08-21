@@ -2,6 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import { useAccount, useProvider, useContract } from 'wagmi'
 import { WorldIDWidget } from "@worldcoin/id";
+import Profiles from './Profiles'
 
 const Dashboard = () => {
 
@@ -17,6 +18,7 @@ const Dashboard = () => {
           onError={(error) => console.error(error)}
         />
         <p> Yay account!</p>
+        <Profiles />
       </>
   );
   } else {
