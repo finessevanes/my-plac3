@@ -1,20 +1,27 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import { useAccount, useProvider, useContract } from 'wagmi'
+import { WorldIDWidget } from "@worldcoin/id";
 
 const Dashboard = () => {
+
   const { address } = useAccount()
   if (address) {
     return (
       <>
-        <Button variant="contained">Hello World</Button>
+        <WorldIDWidget
+          actionId="wid_staging_b7f41eda52d89baab9bd3bb99fb38d4a" // sofie's
+          signal="my_signal"
+          enableTelemetry
+          onSuccess={(verificationResponse) => console.log(verificationResponse)} // you'll actually want to pass the proof to the API or your smart contract
+          onError={(error) => console.error(error)}
+        />
         <p> Yay account!</p>
       </>
   );
   } else {
     return(
       <>
-        <Button variant="contained">Hello World</Button>    
         <p> No account</p>
       </>
     );
