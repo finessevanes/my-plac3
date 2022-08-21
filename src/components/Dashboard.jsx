@@ -1,9 +1,8 @@
 import React from "react";
-import Button from '@mui/material/Button';
-import { useAccount, useProvider, useContract } from 'wagmi'
+import { useAccount } from 'wagmi'
 import { WorldIDWidget } from "@worldcoin/id";
 import Profiles from './Profiles'
-import PublicationCard from './PublicationCard'
+import SignupForm from './SignupForm'
 
 const Dashboard = () => {
   const { address } = useAccount()
@@ -25,7 +24,10 @@ const Dashboard = () => {
         </div>
       )}
       {!address && (
-        <h1>No wallet</h1>
+        <>
+          <h1>No wallet</h1>
+          <SignupForm/>
+        </>
       )}
     </>
   )

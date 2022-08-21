@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.1",
     "@rainbow-me/rainbowkit": "^0.5.0",
@@ -14,6 +15,7 @@
     "@urql/devtools": "^2.0.3",
     "@worldcoin/id": "^0.8.0",
     "ethers": "^5.7.0",
+    "formik": "^2.2.9",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,7 +24,8 @@
     "react-scripts": "5.0.1",
     "urql": "^3.0.1",
     "wagmi": "^0.6.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
